@@ -50,18 +50,17 @@ video {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: fit-content;
+    width: max-content;
     margin: auto;
 
     h2 {
       color: #fff;
-      font-size: 5rem;
       font-weight: bold;
+      width: fit-content;
     }
 
     h1 {
       color: #fff;
-      font-size: 5rem;
       font-weight: bold;
       font-family: arabic-bold !important;
       animation: sa3dolaGlow 1s linear infinite;
