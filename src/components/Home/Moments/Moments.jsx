@@ -14,7 +14,7 @@ export default function Moments() {
                 <source src="/videos/moment_one.mp4" />
               </video>
             </div>
-            {/* <div className="MContent col-10 col-lg-5">
+            <div className="MContent col-10 col-lg-5">
               <h4>بيرقص السكواد في الاوبن</h4>
               <video autoPlay muted loop>
                 <source src="/videos/moment_two.mp4" />
@@ -31,7 +31,7 @@ export default function Moments() {
               <video autoPlay muted loop>
                 <source src="/videos/moment_four.mp4" />
               </video>
-            </div> */}
+            </div>
             <div className="MFooter col-12">
               <h3>الكلام دا بيحصل هنا</h3>
               <a href="https://kick.com/sa3dola" target="_blank">
