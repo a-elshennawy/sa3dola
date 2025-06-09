@@ -1,9 +1,5 @@
 @import url(./fonts.css);
 
-:root {
-  font-size: 16px;
-}
-
 * {
   box-sizing: border-box;
   text-transform: capitalize !important;
@@ -282,7 +278,7 @@ video {
         h1 {
           color: #00fd15;
           font-family: Kick-font !important;
-          font-size: 3.125rem;
+          font-size: 50px;
         }
       }
     }
@@ -328,7 +324,7 @@ video {
           padding: 10px 0px;
           color: #00fd15;
           font-family: Kick-font !important;
-          font-size: 3.125rem;
+          font-size: 50px;
         }
       }
     }
@@ -424,30 +420,5 @@ video {
   }
   100% {
     transform: translateY(0px);
-  }
-}
-
-/* responsive */
-@media screen and (max-width: 992px) {
-  :root {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  :root {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  :root {
-    font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  :root {
-    font-size: 8px;
   }
 }
