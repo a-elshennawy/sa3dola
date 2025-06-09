@@ -17,13 +17,11 @@ export default function Footer() {
           <div className="footerInner row">
             <div className="footerHeader col-12">
               <h1>هتلاقينا فين ؟</h1>
+              <a href="https://kick.com/sa3dola" target="_blank">
+                <h1>kick</h1>
+              </a>
             </div>
             <div className="footerContent col-12 row">
-              <span className="col-12 Kick">
-                <a href="https://kick.com/sa3dola">
-                  <img src="/images/Kick-logo-green.webp" />
-                </a>
-              </span>
               <span className="col-5 col-lg-1 youtube">
                 <a href="https://www.youtube.com/@Sa3dola">
                   <FontAwesomeIcon icon={faYoutube} />

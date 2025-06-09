@@ -35,7 +35,7 @@ export default function Moments() {
             <div className="MFooter col-12">
               <h3>الكلام دا بيحصل هنا</h3>
               <a href="https://kick.com/sa3dola" target="_blank">
-                <img src="/images/Kick-logo-green.webp" />
+                <h1>kick</h1>
               </a>
             </div>
           </div>

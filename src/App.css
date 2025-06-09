@@ -269,9 +269,11 @@ video {
       }
 
       a {
-        img {
-          width: 10%;
-          filter: drop-shadow(0 0 10px #00fd15);
+        text-decoration: none;
+
+        h1 {
+          color: #00fd15;
+          font-family: Kick-font !important;
         }
       }
     }
@@ -309,10 +311,21 @@ video {
         direction: rtl;
         color: #fff;
       }
+
+      a {
+        text-decoration: none;
+
+        h1 {
+          padding: 10px 0px;
+          color: #00fd15;
+          font-family: Kick-font !important;
+        }
+      }
     }
 
     .footerContent {
-      padding: 50px 0px;
+      margin: 0;
+      padding: 20px 0px;
       justify-content: center;
       align-items: center;
       gap: 10px;
@@ -328,11 +341,6 @@ video {
         a {
           color: #fff;
           text-decoration: none;
-
-          img {
-            width: 20%;
-            filter: drop-shadow(0 0 10px #00fd15);
-          }
         }
       }
 

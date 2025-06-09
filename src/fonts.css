@@ -7,3 +7,8 @@
   font-family: arabic-bold;
   src: url(/fonts/PlaypenSansArabic-Bold.ttf);
 }
+
+@font-face {
+  font-family: Kick-font;
+  src: url(/fonts/zy-heaven-fs.otf);
+}
