@@ -36,8 +36,11 @@ export default function Header() {
           <div className="textContainer">
             <h2>أهلا بيك في منتجع الزعيم</h2>
             <h1>سعدولا</h1>
-            <img src="/images/icons8-arrow-down-60.png" alt="" />
             <h3>انزل تحت</h3>
+            <img
+              src="/images/icons8-arrow-down-60.png"
+              onContextMenu={(e) => e.preventDefault()}
+            />
           </div>
         </div>
       </div>

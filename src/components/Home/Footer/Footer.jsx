@@ -46,32 +46,32 @@ export default function Footer() {
             </div>
             <div className="footerContent col-12 row">
               <span className="col-5 col-lg-1 youtube">
-                <a href="https://www.youtube.com/@Sa3dola">
+                <a href="https://www.youtube.com/@Sa3dola" target="_blank">
                   <FontAwesomeIcon icon={faYoutube} />
                 </a>
               </span>
               <span className="col-5 col-lg-1 facebook">
-                <a href="https://www.facebook.com/Sa3dolaa/">
+                <a href="https://www.facebook.com/Sa3dolaa/" target="_blank">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
               </span>
               <span className="col-5 col-lg-1 instagram">
-                <a href="https://www.instagram.com/sa3dolaa">
+                <a href="https://www.instagram.com/sa3dolaa" target="_blank">
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </span>
               <span className="col-5 col-lg-1 tiktok">
-                <a href="https://www.tiktok.com/@sa3dollaa">
+                <a href="https://www.tiktok.com/@sa3dollaa" target="_blank">
                   <FontAwesomeIcon icon={faTiktok} />
                 </a>
               </span>
               <span className="col-5 col-lg-1 x">
-                <a href="https://x.com/sa3dolaa">
+                <a href="https://x.com/sa3dolaa" target="_blank">
                   <FontAwesomeIcon icon={faXTwitter} />
                 </a>
               </span>
               <span className="col-5 col-lg-1 discord">
-                <a href="https://discord.com/invite/E6eZjb7YhW">
+                <a href="https://discord.com/invite/E6eZjb7YhW" target="_blank">
                   <FontAwesomeIcon icon={faDiscord} />
                 </a>
               </span>

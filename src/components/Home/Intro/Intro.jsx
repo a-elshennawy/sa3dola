@@ -34,7 +34,10 @@ export default function Intro() {
             <div className="imgSide col-10 col-lg-4">
               <div className="kickDirection">
                 <a href="https://kick.com/sa3dola" target="_blank">
-                  <img src="/images/Kick-logo-green-k.webp" />
+                  <img
+                    src="/images/Kick-logo-green-k.webp"
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
                 </a>
               </div>
               <img src="/images/2.webp" />
