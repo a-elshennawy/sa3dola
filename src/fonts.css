@@ -1,0 +1,9 @@
+@font-face {
+  font-family: arabic-reg;
+  src: url(/fonts/PlaypenSansArabic-Regular.ttf);
+}
+
+@font-face {
+  font-family: arabic-bold;
+  src: url(/fonts/PlaypenSansArabic-Bold.ttf);
+}
