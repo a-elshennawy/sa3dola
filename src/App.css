@@ -62,6 +62,7 @@ video {
       color: #fff;
       font-weight: bold;
       width: fit-content;
+      margin: auto;
     }
 
     h1 {
@@ -71,16 +72,102 @@ video {
       animation: sa3dolaGlow 1s linear infinite;
     }
 
-    img {
-      width: 10% !important;
-      animation: arrowDown 1s linear infinite;
-    }
+    .socials {
+      justify-content: center;
+      align-items: center;
+      padding: 40px 0px;
 
-    h3 {
-      padding: 20px 0px;
-      color: #fff;
-      font-weight: bold;
-      font-family: arabic-bold !important;
+      .socialsHeader {
+        text-align: center;
+
+        h1 {
+          direction: rtl;
+          color: #fff;
+        }
+
+        a {
+          text-decoration: none;
+
+          h1 {
+            padding: 10px 0px;
+            color: #00fd15;
+            font-family: Kick-font !important;
+            font-size: 50px;
+          }
+        }
+      }
+
+      .socialsContent {
+        margin: 0;
+        padding: 20px 0px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        span {
+          background-color: transparent;
+          border: none;
+          text-align: center;
+          padding: 5px;
+          border-radius: 30px;
+          width: fit-content;
+
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+
+        .youtube {
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            background-color: #fd0000;
+          }
+        }
+
+        .facebook {
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background-color: #0059fd;
+          }
+        }
+
+        .whatsapp {
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background-color: #1efd00;
+          }
+        }
+
+        .instagram {
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background-image: linear-gradient(#fd0000, #8b0062);
+          }
+        }
+
+        .tiktok {
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background-color: #fd0000;
+          }
+        }
+
+        .x {
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background-color: #000;
+          }
+        }
+
+        .discord {
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background-color: #5b0080;
+          }
+        }
+      }
     }
   }
 }
@@ -285,115 +372,17 @@ video {
   }
 }
 
-.footer {
-  position: relative;
-  height: 50dvh;
-
-  .BGLayer {
-    position: absolute;
-    inset: 0;
-    z-index: -111;
-    filter: brightness(40%);
-    background-image: url("/images/kick.webp");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-
-  .footerInner {
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    .footerHeader {
-      text-align: center;
-
-      h1 {
-        direction: rtl;
-        color: #fff;
-      }
-
-      a {
-        text-decoration: none;
-
-        h1 {
-          padding: 10px 0px;
-          color: #00fd15;
-          font-family: Kick-font !important;
-          font-size: 50px;
-        }
-      }
-    }
-
-    .footerContent {
-      margin: 0;
-      padding: 20px 0px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-
-      span {
-        background-color: transparent;
-        border: none;
-        text-align: center;
-        padding: 5px;
-        border-radius: 30px;
-        width: fit-content;
-
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
-      }
-
-      .youtube {
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-          background-color: #fd0000;
-        }
-      }
-
-      .facebook {
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          background-color: #0059fd;
-        }
-      }
-
-      .instagram {
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          background-image: linear-gradient(#fd0000, #8b0062);
-        }
-      }
-
-      .tiktok {
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          background-color: #fd0000;
-        }
-      }
-
-      .x {
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          background-color: #000;
-        }
-      }
-
-      .discord {
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          background-color: #5b0080;
-        }
-      }
-    }
-  }
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3px;
+  border-radius: 5px;
+  height: 0px;
+  background-image: linear-gradient(#000, #fd0000);
+  z-index: 111;
+  animation: progressBar linear forwards;
+  animation-timeline: scroll();
 }
 
 /* animation */
@@ -411,14 +400,13 @@ video {
   }
 }
 
-@keyframes arrowDown {
+@keyframes progressBar {
   0% {
-    transform: translateY(0px);
+    height: 0px;
   }
-  50% {
-    transform: translateY(20px);
-  }
+
   100% {
-    transform: translateY(0px);
+    height: 100%;
+    filter: drop-shadow(0 0 10px #fd0000);
   }
 }
