@@ -9,7 +9,9 @@ import {
   faXTwitter,
   faDiscord,
   faYoutube,
+  faRocketchat,
 } from "@fortawesome/free-brands-svg-icons";
+import { motion } from "motion/react";
 
 export default function Header() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,11 +51,22 @@ export default function Header() {
             <div className="socials row">
               <div className="socialsHeader col-12">
                 <h1>احنا فين ؟</h1>
-                <a href="https://kick.com/sa3dola" target="_blank">
+                <motion.a
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  href="https://kick.com/sa3dola"
+                  target="_blank"
+                >
                   <h1>kick</h1>
-                </a>
+                </motion.a>
               </div>
-              <div className="socialsContent col-12 row">
+              <motion.div
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                className="socialsContent col-12 row"
+              >
                 <span className="col-5 col-lg-1 youtube">
                   <a href="https://www.youtube.com/@Sa3dola" target="_blank">
                     <FontAwesomeIcon icon={faYoutube} />
@@ -95,9 +108,19 @@ export default function Header() {
                     <FontAwesomeIcon icon={faDiscord} />
                   </a>
                 </span>
-              </div>
+              </motion.div>
             </div>
           </div>
+          <motion.span
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className="toChat"
+          >
+            <a href="/">
+              <FontAwesomeIcon icon={faRocketchat} />
+            </a>
+          </motion.span>
         </div>
       </div>
     </>
