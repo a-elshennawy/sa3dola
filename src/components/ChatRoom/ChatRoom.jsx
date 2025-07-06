@@ -11,6 +11,8 @@ import {
   query,
   orderBy,
 } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import { IoChevronBack } from "react-icons/io5";
 
 export default function ChatRoom() {
   const { user } = useUser();
@@ -74,11 +76,17 @@ export default function ChatRoom() {
             zIndex: 1,
           }}
         />
+
         <div className="msgs-container">
           {messages.map((msg) => (
             <Message key={msg.id} msg={msg} currentuserId={user?.id} />
           ))}
           <div ref={messagesEndRef} />
+          <button className="HomeBtn">
+            <Link to={"/"}>
+              <IoChevronBack />
+            </Link>
+          </button>
         </div>
         <div className="msgs-input">
           <textarea

@@ -10,8 +10,12 @@ import {
   FaRocketchat,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { useAuth } from "@clerk/clerk-react";
+import { PacmanLoader } from "react-spinners";
 
 export default function Header() {
+  const { isSignedIn, isLoaded } = useAuth();
+
   return (
     <>
       <div className="header">
@@ -94,9 +98,23 @@ export default function Header() {
             transition={{ duration: 2, ease: "easeInOut" }}
             className="toChat"
           >
-            <Link to={"/sign-up"}>
-              <FaRocketchat />
-            </Link>
+            {isLoaded ? (
+              <Link to={isSignedIn ? "/chat-room" : "/sign-up"}>
+                <FaRocketchat />
+              </Link>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "40px",
+                  height: "40px",
+                }}
+              >
+                <PacmanLoader size={20} color="#00fd15" />
+              </div>
+            )}
           </motion.span>
         </div>
       </div>

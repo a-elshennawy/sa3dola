@@ -8,6 +8,7 @@
 
 body {
   background-color: #000;
+  overflow-x: hidden;
 }
 
 img {
@@ -487,6 +488,31 @@ video {
     border: 1px solid #00fd15;
     border-radius: 20px;
     z-index: 111;
+
+    .HomeBtn {
+      position: fixed;
+      top: 20px;
+      right: 10px;
+      padding: 5px 10px;
+      background-color: transparent;
+      border: 1px solid #00fd15;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+
+      a {
+        text-decoration: none;
+        color: #00fd15;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover {
+        background-color: #00fd15;
+
+        a {
+          color: #000;
+        }
+      }
+    }
 
     .message {
       display: flex;

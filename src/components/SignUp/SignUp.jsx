@@ -1,94 +1,75 @@
-import { useSignUp, useSignIn } from "@clerk/clerk-react";
+import { useSignUp, useSignIn, useClerk } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { motion } from "framer-motion"; // Corrected import for framer-motion
+import { motion } from "motion/react";
 
 export default function SignUpPage() {
-  // Clerk hooks for sign-up and sign-in
   const { isLoaded: isSignUpLoaded, signUp } = useSignUp();
   const { isLoaded: isSignInLoaded, signIn } = useSignIn();
-
+  const { setActive } = useClerk();
   const navigate = useNavigate();
 
-  // State variables for form inputs and UI state
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignIn, setIsSignIn] = useState(false); // State to toggle between sign-up and sign-in
-  const [message, setMessage] = useState(""); // State for displaying messages (errors/success)
+  const [isSignIn, setIsSignIn] = useState(false);
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  /**
-   * Handles the form submission for both sign-up and sign-in.
-   * Based on the 'isSignIn' state, it calls the appropriate Clerk method.
-   * @param {Event} e - The form submission event.
-   */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage(""); // Clear previous messages
+    setMessage("");
+    setIsLoading(true);
 
-    if (isSignIn) {
-      // --- Sign In Logic ---
-      if (!isSignInLoaded) {
-        setMessage("Clerk sign-in not loaded yet.");
-        return;
-      }
+    try {
+      if (isSignIn) {
+        if (!isSignInLoaded) {
+          setMessage("Clerk sign-in not loaded yet.");
+          return;
+        }
 
-      try {
         const result = await signIn.create({
-          identifier: username, // For sign-in, username acts as the identifier
+          identifier: username,
           password,
         });
 
         if (result.status === "complete") {
-          navigate("/chat-room"); // Navigate to chat room on successful sign-in
-        } else {
-          // This case might handle intermediate statuses if Clerk has them
-          console.log("Sign-in result status:", result.status);
-          setMessage("Sign-in process not completed. Please try again.");
+          // This is the correct way to set the active session
+          await setActive({ session: result.createdSessionId });
+          navigate("/chat-room");
         }
-      } catch (err) {
-        console.error("Sign-in Error:", err);
-        setMessage(
-          `Sign-in failed: ${
-            err.errors?.[0]?.longMessage ||
-            err.message ||
-            "An unknown error occurred."
-          }`
-        );
-      }
-    } else {
-      // --- Sign Up Logic ---
-      if (!isSignUpLoaded) {
-        setMessage("Clerk sign-up not loaded yet.");
-        return;
-      }
+      } else {
+        if (!isSignUpLoaded) {
+          setMessage("Clerk sign-up not loaded yet.");
+          return;
+        }
 
-      try {
-        // For simple username/password sign-up, create can often complete the process directly
         const result = await signUp.create({
           username,
-          password, // Include password for sign-up
+          password,
         });
 
         if (result.status === "complete") {
-          navigate("/chat-room"); // Navigate to chat room on successful sign-up
-        } else {
-          // This case might handle intermediate statuses if Clerk has them
-          // For example, if email verification is required, status might be 'needs_email_verification'
-          console.log("Sign-up result status:", result.status);
-          setMessage(
-            "Sign-up process not completed. Please check for verification steps if any, or try again."
-          );
+          // For sign-up, we need to handle email verification first
+          if (result.verifications.emailAddress.status === "verified") {
+            await setActive({ session: result.createdSessionId });
+            navigate("/chat-room");
+          } else {
+            // Handle email verification flow
+            setMessage("Please check your email to verify your account");
+          }
         }
-      } catch (err) {
-        console.error("Sign-up Error:", err);
-        setMessage(
-          `Sign-up failed: ${
-            err.errors?.[0]?.longMessage ||
-            err.message ||
-            "An unknown error occurred."
-          }`
-        );
       }
+    } catch (err) {
+      console.error("Authentication Error:", err);
+      setMessage(
+        `Authentication failed: ${
+          err.errors?.[0]?.longMessage ||
+          err.message ||
+          "An unknown error occurred."
+        }`
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -143,8 +124,14 @@ export default function SignUpPage() {
             </div>
           )}
           <div className="col-12 py-2 px-0">
-            <button className="SignBtn" type="submit">
-              {isSignIn ? "بيتك ومطرحك" : "خش هتجيبك"}
+            <button className="SignBtn" type="submit" disabled={isLoading}>
+              {isLoading ? (
+                <span>اصبر بتحمل ...</span>
+              ) : isSignIn ? (
+                "بيتك ومطرحك"
+              ) : (
+                "خش هتجيبك"
+              )}
             </button>
           </div>
           <div className="col-12 py-2 px-0">
@@ -158,7 +145,7 @@ export default function SignUpPage() {
                 setPassword("");
               }}
             >
-              {isSignIn ? " اول مره تيجي ؟ " : "  معاك اكونت ؟ "}
+              {isSignIn ? " اول مره تيجي ؟ " : "  معاك اكونت ؟ "}
             </button>
           </div>
         </form>
