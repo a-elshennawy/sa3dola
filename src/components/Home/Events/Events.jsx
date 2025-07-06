@@ -1,28 +1,4 @@
-import { useState, useEffect } from "react";
-import { PacmanLoader } from "react-spinners";
-
 export default function Events() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time (remove this in production)
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // 1 second delay
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div
-        style={{ display: "flex", justifyContent: "center", padding: "50px" }}
-      >
-        <PacmanLoader color="#00fd15" />
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="events">

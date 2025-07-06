@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { PacmanLoader } from "react-spinners";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import {
   faFacebook,
   faWhatsapp,
@@ -14,27 +13,6 @@ import {
 import { motion } from "motion/react";
 
 export default function Header() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time (remove this in production)
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // 1 second delay
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div
-        style={{ display: "flex", justifyContent: "center", padding: "50px" }}
-      >
-        <PacmanLoader color="#00fd15" />
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="header">
@@ -117,9 +95,9 @@ export default function Header() {
             transition={{ duration: 2, ease: "easeInOut" }}
             className="toChat"
           >
-            <a href="/">
+            <Link to={"/sign-up"}>
               <FontAwesomeIcon icon={faRocketchat} />
-            </a>
+            </Link>
           </motion.span>
         </div>
       </div>

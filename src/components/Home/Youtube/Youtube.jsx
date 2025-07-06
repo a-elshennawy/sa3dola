@@ -1,19 +1,8 @@
 import { useState, useEffect } from "react";
-import { PacmanLoader } from "react-spinners";
 
 export default function Youtube() {
   const [videos, setVideos] = useState([]);
-  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    // Simulate loading time (remove this in production)
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // 1 second delay
-
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -31,15 +20,6 @@ export default function Youtube() {
     fetchVideos();
   }, []);
 
-  if (isLoading) {
-    return (
-      <div
-        style={{ display: "flex", justifyContent: "center", padding: "50px" }}
-      >
-        <PacmanLoader color="#00fd15" />
-      </div>
-    );
-  }
   if (error) return <div className="text-center py-5 text-danger">{error}</div>;
 
   return (
