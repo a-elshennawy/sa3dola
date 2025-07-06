@@ -3,23 +3,28 @@ import { useState, useEffect } from "react";
 export default function Youtube() {
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // Add this line
 
   useEffect(() => {
     const fetchVideos = async () => {
       try {
+        setLoading(true); // Set loading to true when starting
         const response = await fetch("/.netlify/functions/get-youtube-videos");
+        if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
         setVideos(data);
-        setLoading(false);
       } catch (err) {
         setError("شناوي معاه حوار .. تعالا وقت تاني");
-        setLoading(false);
+        console.error("Fetch error:", err);
+      } finally {
+        setLoading(false); // Always set loading to false when done
       }
     };
 
     fetchVideos();
   }, []);
 
+  if (loading) return <div className="text-center py-5">جاري التحميل...</div>;
   if (error) return <div className="text-center py-5 text-danger">{error}</div>;
 
   return (

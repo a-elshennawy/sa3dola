@@ -3,35 +3,48 @@ const { parseString } = require("xml2js");
 
 exports.handler = async (event) => {
   try {
-    // 1. Fetch YouTube RSS feed (works with @username or channel ID)
-    const channelName = "UC7v4yyZtL2EQEO9lO4kafYw"; // From youtube.com/@Sa3dola
-    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelName}`;
-    const response = await axios.get(rssUrl);
+    const channelId = "UC7v4yyZtL2EQEO9lO4kafYw";
+    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
 
-    // 2. Parse XML to JSON
+    const response = await axios.get(rssUrl, {
+      headers: {
+        Accept: "application/xml",
+        "User-Agent": "Mozilla/5.0",
+      },
+    });
+
     const videos = await new Promise((resolve, reject) => {
       parseString(response.data, (err, result) => {
-        if (err) reject(err);
+        if (err) return reject(err);
 
-        // Extract latest 3 videos
+        if (!result.feed.entry) {
+          return resolve([]);
+        }
+
         const latestVideos = result.feed.entry.slice(0, 4).map((video) => ({
-          id: video["yt:videoId"][0], // Video ID for iframe
-          title: video.title[0], // Video title (optional)
+          id: video["yt:videoId"][0],
+          title: video.title[0],
         }));
         resolve(latestVideos);
       });
     });
 
-    // 3. Return videos to React
     return {
       statusCode: 200,
-      headers: { "Access-Control-Allow-Origin": "*" }, // Fix CORS
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=3600", // Cache for 1 hour
+      },
       body: JSON.stringify(videos),
     };
   } catch (err) {
+    console.error("Function error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to fetch videos" }),
+      body: JSON.stringify({
+        error: "Failed to fetch videos",
+        details: err.message,
+      }),
     };
   }
 };
