@@ -19,7 +19,7 @@ const ChatRoom = lazy(() => import("./components/ChatRoom/ChatRoom"));
 const SignUp = lazy(() => import("./components/SignUp/SignUp"));
 
 function App() {
-  const { isSignedIn, isLoaded } = useAuth();
+  const { isLoaded } = useAuth();
 
   return (
     <Router>
@@ -28,10 +28,10 @@ function App() {
           <div
             style={{
               display: "flex",
-
               justifyContent: "center",
-
-              padding: "50px",
+              alignItems: "center",
+              minHeight: "100vh",
+              backgroundColor: "#000",
             }}
           >
             <PacmanLoader color="#00fd15" />
@@ -43,19 +43,14 @@ function App() {
             path="/"
             element={
               isLoaded ? (
-                isSignedIn ? (
-                  <Navigate to="/chat-room" replace />
-                ) : (
-                  <Home />
-                )
+                <Home />
               ) : (
                 <div
                   style={{
                     display: "flex",
-
                     justifyContent: "center",
-
-                    padding: "50px",
+                    alignItems: "center",
+                    minHeight: "100vh",
                   }}
                 >
                   <PacmanLoader color="#00fd15" />

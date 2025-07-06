@@ -1,16 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import {
-  faFacebook,
-  faWhatsapp,
-  faInstagram,
-  faTiktok,
-  faXTwitter,
-  faDiscord,
-  faYoutube,
-  faRocketchat,
-} from "@fortawesome/free-brands-svg-icons";
 import { motion } from "motion/react";
+import {
+  FaYoutube,
+  FaFacebookF,
+  FaWhatsapp,
+  FaInstagram,
+  FaTiktok,
+  FaDiscord,
+  FaRocketchat,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Header() {
   return (
@@ -47,12 +46,12 @@ export default function Header() {
               >
                 <span className="col-5 col-lg-1 youtube">
                   <a href="https://www.youtube.com/@Sa3dola" target="_blank">
-                    <FontAwesomeIcon icon={faYoutube} />
+                    <FaYoutube />
                   </a>
                 </span>
                 <span className="col-5 col-lg-1 facebook">
                   <a href="https://www.facebook.com/Sa3dolaa/" target="_blank">
-                    <FontAwesomeIcon icon={faFacebook} />
+                    <FaFacebookF />
                   </a>
                 </span>
                 <span className="col-5 col-lg-1 whatsapp">
@@ -60,22 +59,22 @@ export default function Header() {
                     href="https://www.whatsapp.com/channel/0029Vabs0vI4IBhL0ZMqwT07"
                     target="_blank"
                   >
-                    <FontAwesomeIcon icon={faWhatsapp} />
+                    <FaWhatsapp />
                   </a>
                 </span>
                 <span className="col-5 col-lg-1 instagram">
                   <a href="https://www.instagram.com/sa3dolaa" target="_blank">
-                    <FontAwesomeIcon icon={faInstagram} />
+                    <FaInstagram />
                   </a>
                 </span>
                 <span className="col-5 col-lg-1 tiktok">
                   <a href="https://www.tiktok.com/@sa3dollaa" target="_blank">
-                    <FontAwesomeIcon icon={faTiktok} />
+                    <FaTiktok />
                   </a>
                 </span>
                 <span className="col-5 col-lg-1 x">
                   <a href="https://x.com/sa3dolaa" target="_blank">
-                    <FontAwesomeIcon icon={faXTwitter} />
+                    <FaXTwitter />
                   </a>
                 </span>
                 <span className="col-5 col-lg-1 discord">
@@ -83,7 +82,7 @@ export default function Header() {
                     href="https://discord.com/invite/E6eZjb7YhW"
                     target="_blank"
                   >
-                    <FontAwesomeIcon icon={faDiscord} />
+                    <FaDiscord />
                   </a>
                 </span>
               </motion.div>
@@ -96,7 +95,7 @@ export default function Header() {
             className="toChat"
           >
             <Link to={"/sign-up"}>
-              <FontAwesomeIcon icon={faRocketchat} />
+              <FaRocketchat />
             </Link>
           </motion.span>
         </div>
