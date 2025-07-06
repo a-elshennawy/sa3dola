@@ -46,18 +46,15 @@ export default function SignUpPage() {
         const result = await signUp.create({
           username,
           password,
-          skipEmailVerification: true,
         });
 
+        // Immediately attempt to complete the sign-up
         if (result.status === "complete") {
-          // For sign-up, we need to handle email verification first
-          if (result.verifications.emailAddress.status === "verified") {
-            await setActive({ session: result.createdSessionId });
-            navigate("/chat-room");
-          } else {
-            // Handle email verification flow
-            setMessage("Please check your email to verify your account");
-          }
+          await setActive({ session: result.createdSessionId });
+          navigate("/chat-room");
+        } else {
+          // This shouldn't happen with skipEmailVerification
+          console.error("Unexpected status:", result.status);
         }
       }
     } catch (err) {
