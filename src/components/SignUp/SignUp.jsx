@@ -30,7 +30,6 @@ export default function SignUpPage() {
         const result = await signIn.create({
           identifier: username,
           password,
-          skipEmailVerification: true,
         });
 
         if (result.status === "complete") {
@@ -47,6 +46,7 @@ export default function SignUpPage() {
         const result = await signUp.create({
           username,
           password,
+          skipEmailVerification: true,
         });
 
         if (result.status === "complete") {
