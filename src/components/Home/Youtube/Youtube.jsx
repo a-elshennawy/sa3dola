@@ -48,14 +48,6 @@ export default function Youtube() {
               ></iframe>
             </div>
           ))}
-          <div className="YTFooter col-10">
-            <button className="moreBtn">
-              <a href="https://www.youtube.com/@Sa3dola/videos" target="_blank">
-                كل ما يخص الزعيم سعدولا والالعاب والمغامرات التي تحدث في
-                اللايفات و الكثير و الكثير 🎈😂
-              </a>
-            </button>
-          </div>
         </div>
       </div>
     </div>
