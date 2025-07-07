@@ -21,7 +21,7 @@ exports.handler = async (event) => {
           return resolve([]);
         }
 
-        const latestVideos = result.feed.entry.slice(0, 4).map((video) => ({
+        const latestVideos = result.feed.entry.slice(0, 1).map((video) => ({
           id: video["yt:videoId"][0],
           title: video.title[0],
         }));
