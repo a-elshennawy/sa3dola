@@ -2,7 +2,6 @@ export default function Events() {
   return (
     <>
       <div className="events">
-        <div className="BGLayer"></div>
         <div className="container-fluid">
           <div className="eventsInner row">
             <div className="EVHeader col-12">

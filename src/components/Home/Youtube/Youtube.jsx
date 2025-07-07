@@ -29,7 +29,6 @@ export default function Youtube() {
 
   return (
     <div className="YT">
-      <div className="BGLayer"></div>
       <div className="container-fluid">
         <div className="YTInner row">
           <div className="YTHeader col-12">

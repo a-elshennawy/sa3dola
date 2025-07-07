@@ -20,12 +20,21 @@ export default function Header() {
     <>
       <div className="header">
         <div className="container-fluid">
-          <div className="vidContainer">
-            <video loop muted autoPlay>
-              <source src="/videos/header.mp4" />
-            </video>
-            <div className="blacklayer"></div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background:
+                "radial-gradient(circle at top center, rgba(0, 255, 0, 0.15), transparent 70%)",
+              zIndex: 1,
+            }}
+          />
           <div className="textContainer">
             <h2>أهلا بيك في منتجع الزعيم</h2>
             <h1>سعدولا</h1>
