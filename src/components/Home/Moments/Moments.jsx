@@ -32,10 +32,10 @@ export default function Moments() {
               className="MContent col-10 col-lg-5"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{
                 duration: 0.8,
-                delay: 0.7 + index * 0.15,
+                delay: 0.3 + index * 0.15,
                 ease: "backOut",
               }}
             >
@@ -50,8 +50,8 @@ export default function Moments() {
             className="MFooter col-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1.3 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             <h3>الكلام دا بيحصل هنا</h3>
             <a

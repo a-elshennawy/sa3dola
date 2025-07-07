@@ -8,7 +8,8 @@ export default function Intro() {
           <div className="introInner row">
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: false }}
               transition={{ duration: 1, ease: "easeInOut" }}
               className="textSide col-10"
             >
@@ -16,7 +17,8 @@ export default function Intro() {
             </motion.div>
             <motion.div
               initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false }}
               transition={{ duration: 1, ease: "easeInOut" }}
               className="imgSide col-10 col-lg-4"
             >

@@ -1,13 +1,26 @@
+import { motion } from "motion/react";
 export default function Events() {
   return (
     <>
       <div className="events">
         <div className="container-fluid">
           <div className="eventsInner row">
-            <div className="EVHeader col-12">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
+              className="EVHeader col-12"
+            >
               <h2>حاجات تحب تشوفها</h2>
-            </div>
-            <div className="event col-10 col-lg-4">
+            </motion.div>
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
+              className="event col-10 col-lg-4"
+            >
               <iframe
                 width="100%"
                 height="400"
@@ -18,8 +31,14 @@ export default function Events() {
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
               ></iframe>
-            </div>
-            <div className="event col-10 col-lg-4">
+            </motion.div>
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
+              className="event col-10 col-lg-4"
+            >
               <iframe
                 width="100%"
                 height="400"
@@ -30,7 +49,7 @@ export default function Events() {
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
               ></iframe>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
