@@ -40,7 +40,6 @@ export default function Header() {
             <h1>سعدولا</h1>
             <div className="socials row">
               <div className="socialsHeader col-12">
-                <h1>احنا فين ؟</h1>
                 <motion.a
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

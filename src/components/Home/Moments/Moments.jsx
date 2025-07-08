@@ -9,7 +9,7 @@ export default function Moments() {
             className="MHeader col-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <h2>لحظات لا تنسى</h2>

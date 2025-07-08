@@ -6,7 +6,8 @@
   font-family: arabic-reg !important;
 }
 
-body {
+body,
+html {
   background-color: #000;
   overflow-x: hidden;
 }
@@ -47,8 +48,9 @@ video {
     h1 {
       color: #fff;
       font-weight: bold;
+      padding: 10px 0px;
+      margin: 0;
       font-family: arabic-bold !important;
-      animation: sa3dolaGlow 1s linear infinite;
     }
 
     .socials {
@@ -60,8 +62,8 @@ video {
         text-align: center;
 
         h1 {
-          direction: rtl;
           color: #fff;
+          animation: sa3dolaGlow 1s infinite;
         }
 
         a {
@@ -528,7 +530,7 @@ video {
   }
 
   50% {
-    filter: drop-shadow(0 0 10px #00fd15);
+    filter: drop-shadow(0 0 5px #00fd15);
   }
 
   100% {
