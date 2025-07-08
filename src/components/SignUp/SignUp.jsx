@@ -73,7 +73,7 @@ export default function SignUpPage() {
 
   return (
     <>
-      <div className="SignUpFormContainer container-fluid">
+      <div className="SignUpFormContainer row container-fluid">
         <motion.div
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function SignUpPage() {
             zIndex: 1,
           }}
         />
-        <form className="row" onSubmit={handleSubmit}>
+        <form className="row col-lg-4 col-10" onSubmit={handleSubmit}>
           <label className="col-12" htmlFor="username">
             اسمك ايه يابني
           </label>
